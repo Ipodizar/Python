@@ -4,6 +4,7 @@
 # 게임의 승패 판단하고 결과 출력
 # 가위는 1, 바위는 2, 보는 3으로 표현
 # 게임 종료 시 게임을 계속할 지 물어본다.
+# 객체 하나가 게임 하나
 import random
 
 class RockPaperScissors:
