@@ -51,10 +51,10 @@ class RockPaperScissors:
             print(f"현재 점수 - 사용자: {self.user_score}, 컴퓨터: {self.computer_score}")
 
             
-            play_again = input("게임을 계속하시겠습니까? (Y/N): ").strip().upper()
-            if play_again != 'Y':
+            play_again = input("게임을 계속하시겠습니까? (Y/N): ").strip().upper() # 입력한 거 공백 제거
+            if play_again == 'Y':
                 print("게임을 종료합니다.")
-                breakplay_again = input("게임을 계속하시겠습니까? (Y/N): ").upper()
+                break
 
 RockPaperScissors().play() # 객체 생성할 필요가 없음
 
