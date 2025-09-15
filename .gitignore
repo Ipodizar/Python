@@ -1,0 +1,18 @@
+# 문서 파일
+*.docx
+*.pdf
+
+# macOS 시스템 파일
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 썸네일
+._*
+
+# Python 관련 파일
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
