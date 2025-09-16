@@ -29,6 +29,6 @@ class Child(Parents): # --> 상속받음
         print('자식클래스 메소드')
 
 # Child 클래스 객체 c
-c= Child('홍길동', 20) # 객체 생성 시 클래스 변수? --> 출력 시 자식생성자
+c = Child('홍길동', 20) # 객체 생성 시 클래스 변수? --> 출력 시 자식생성자
 print(c.p_name, c.age) # AttributeError: 
 # 그냥 상속받으면 메서드만 내려옴, 부모 init 호출 필요
