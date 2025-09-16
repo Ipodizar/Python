@@ -15,3 +15,4 @@ class Person:
 p1 = Person("홍길동", 20)
 print(p1.age) # age함수로 사용하는 대신 괄호 안 붙임
 p1.age = 30
+print(p1.age)
