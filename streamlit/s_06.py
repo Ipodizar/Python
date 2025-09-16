@@ -1,0 +1,63 @@
+import streamlit as st
+
+# 페이지 기본 설정
+st.set_page_config(
+    page_title="Streamlit 레이아웃 예제",
+    page_icon=":heart_eyes:",
+    layout="wide"  # 전체 페이지를 wide 모드로 설정
+)
+
+# 사이드바 메뉴 생성
+with st.sidebar:
+    st.title("게임")
+    selected_menu = st.radio(
+        "원하시는 게임을 선택하세요:",
+        ["숫자맞추기", "가위바위보"]
+    )
+
+# 메인 컨텐츠 영역
+import random
+def show_game1():
+    st.header("숫자맞추기")
+    st.write("환영합니다! 이곳은 숫자맞추기 게임 페이지입니다.")
+
+    if 'c_number' not in st.session_state:
+        st.session_state.c_number = random.randint(1, 100)    
+    c_num = st.session_state.c_number        
+    h_number = st.number_input("1에서 100 사이의 숫자를 입력하세요:", 1, 100)
+    
+    if st.button("확인"):
+        if h_number < c_num:
+            st.warning("예측한 값이 낮습니다.")
+        elif h_number > c_num:
+            st.warning("예측한 값이 높습니다.")
+        else:
+            st.balloons()
+            st.success(f"정답! {c_num}였습니다.")
+            del st.session_state.c_number    
+
+
+def show_game2():
+    st.header("가위바위보")
+    st.write("환영합니다! 이곳은 가위바위보 게임 페이지입니다.")
+
+    if 'c_rsp' not in st.session_state:
+        st.session_state.c_rsp = random.randint(1, 3)
+    com_rsp = st.session_state.c_rsp
+    h_rsp = st.number_input("1 2 3 중에 숫자를 입력하세요: 1 : '가위', 2 : '바위', 3 : '보' ", 1, 3)
+
+    if st.button("확인"):
+        if com_rsp == h_rsp:
+            st.warning("비겼습니다.")
+        elif (com_rsp - h_rsp) % 3 == 1:
+            st.warning("컴퓨터 승!")
+        else:
+            st.balloons()
+            st.success(f"축하합니다! 사용자 승!")
+            del st.session_state.c_rsp   
+    
+# 선택된 메뉴에 따라 해당하는 컨텐츠 표시
+if selected_menu == "숫자맞추기":
+    show_game1()
+elif selected_menu == "가위바위보":
+    show_game2()
