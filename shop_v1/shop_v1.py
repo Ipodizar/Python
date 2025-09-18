@@ -58,7 +58,7 @@ def update_customer(customer_id, name):
     print(f'업데이트 되었습니다. {customer_id} {name}')
 
 def delete_customer(customer_id):
-    sql = 'delete from customer where customer_id = %'
+    sql = 'delete from customer where customer_id = %s'
     with conn.cursor() as cur:
         cur.execute(sql, customer_id)
     conn.commit()
