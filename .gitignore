@@ -1,3 +1,9 @@
+# 가상환경
+.vscdde
+
+# 환경변수
+.env
+
 # 문서 파일
 *.docx
 *.pdf
@@ -16,3 +22,5 @@ __pycache__/
 *$py.class
 .Python
 *.so
+*.splite3
+*.db
