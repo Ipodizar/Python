@@ -15,12 +15,23 @@ conn = pymysql.connect(
     database = os.getenv('DB_NAME')
 )
 print('접속성공')
-conn.close() # 접속해제
+
 # 2. 각 테이블별
     # C - insert
     # R - select
     # U - update
     # D - delete
+#  고객 - customer
+def create_customer(name):
+    sql = 'insert into customer values(null, %s)'
+    cur = conn.cursor()
+    cur.execute(sql, '이순신')
+    conn.commit()
+    print('고객추가 완료')
+
+sql = 'select * from customer'
+cur = conn.cursor()
+cur.execute(sql)
 # 3. 메소드
     # 회원가입
     # 상품정보 출력
@@ -28,3 +39,5 @@ conn.close() # 접속해제
     # 상품정보 입력
     # 대쉬보드 : 고객별 상품별 구매횟수, 평균 구매액
 # 4. 기능 구현과 테스트가 되면.. streamlit으로 UI 구성 - 템플릿 화면을 보고 유사한 형태로 구현
+
+conn.close() # 접속해제
