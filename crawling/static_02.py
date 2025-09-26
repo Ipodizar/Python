@@ -22,11 +22,18 @@ str_table_rows = '#contents > div.content > fieldset > fieldset > div.tableType0
 # soup.select('tbody > tr') tbody가 한 개 밖에 없어서 가능. 만약 여러개면 가장 먼저 만나는 tbody
 #contents > div.content > fieldset > fieldset > div.tableType01 > table > tbody > tr:nth-child(1)
 store_rows = soup.select(str_table_rows)
-for idx, row in enumerate(store_rows):
-    print(idx+1)
-    print(row.select('td')[0].text.strip())  # td 하나씩 다 찾아줌, .text는 태그 제외하고 텍스트만 출력 --> 지역
-    print(row.select('td')[1].text.strip())  # 매장명
-    print(row.select('td')[2].text.strip())  # 현황
-    print(row.select('td')[3].text.strip())  # 주소
-    print(row.select('td')[5].text.strip())  # 전화번호
-    print('*' * 100) # --> 데이터 다 나옴
+store_lists=[]
+for row in store_rows:
+    store_lists.append(
+    (
+    row.select('td')[0].text.strip(),  # td 하나씩 다 찾아줌, .text는 태그 제외하고 텍스트만 출력 --> 지역
+    row.select('td')[1].text.strip(),  # 매장명
+    row.select('td')[2].text.strip(),  # 현황
+    row.select('td')[3].text.strip(),  # 주소
+    row.select('td')[5].text.strip()  # 전화번호
+    )
+    )
+ 
+print(store_lists)
+
+
